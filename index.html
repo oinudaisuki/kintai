@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+		<script language="Javascript" src="js/inout.js"></script>
+		<title>勤怠システム</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="container-title">
+				<h1>勤怠システム</h1>
+			</div>
+			<div class="container-top">
+				<p id="date-area"></p>
+				<p id="time-area"></p>
+			</div>
+			<div class="container-main">
+				<p id="work-start-date"></p>
+				<p id="work-end-date"></p>
+				<p id="chill-start-date"></p>
+				<p id="chill-end-date"></p>
+				<p id="work-total-time"></p>
+				<div class="container-button">
+					<form>
+						<input id="in-out-button" type="button" value="出勤" onclick="return inoutClick();"
+					</form>
+				</div>
+				<div class="container-button">
+					<form>
+						<input id="chill-button" type="button" value="休憩" onclick="return chillClick();">
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/inout.js"></script>
+</html>
