@@ -58,12 +58,27 @@ function inoutClick() {
 //	休憩ボタン
 function chillClick() {
 	let nowTime = new Date();
+	let nowYear = addZero(nowTime.getFullYear());
+	let nowMonth = addZero(nowTime.getMonth() + 1);
+	let nowDate = addZero(nowTime.getDate());
+	let nowHour = addZero(nowTime.getHours());
+	let nowMinute = addZero(nowTime.getMinutes());
+	let nowSecond = addZero(nowTime.getSeconds());
+	let button = document.getElementById('in-out-button');
+	let useDate = nowYear + "/" + nowMonth + "/" + nowDate + " " + nowHour + ":" + nowMinute + ":" + nowSecond;
 	let button = document.getElementById('chill-button');
 	if (button.value == "休憩") {
-		document.getElementById('chill-start-date').innerHTML = nowTime;
+		document.getElementById('chill-start-date').innerHTML = useDate;
 		button.value = "休憩終了"
 	} else {
-		document.getElementById('chill-end-date').innerHTML = nowTime;
+		let chillStartDate = document.getElementById('work-start-date').textContent;
+		//	勤務時間計算
+		let chillSec = Math.abs(new Date(useDate).getTime() - new Date(chillStartDate)) / 1000;	//	秒
+		let chillHour = Math.floor(chillSec / 3600);		//	時間
+		let chillMin = Math.floor(chillSec % 3600 / 60);	//	分
+		let chillTotal = chillHour + "時間" + chillMin + "分"
+		document.getElementById('chill-end-date').innerHTML = useDate;
+		document.getElementById('chill-total-time').innerHTML = chillTotal + "休憩しました";
 		button.value = "休憩"
 	}
 }
