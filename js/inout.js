@@ -39,9 +39,9 @@ function inoutClick() {
 	} else {
 		let workStartDate = document.getElementById('work-start-date').textContent;
 		//	勤務時間計算
-		let workSec = Math.abs(new Date(useDate).getTime() - new Date(workStartDate)) / 1000;
-		let workHour = Math.floor(workSec / 3600);
-		let workMin = Math.floor(workSec % 3600 / 60);
+		let workSec = Math.abs(new Date(useDate).getTime() - new Date(workStartDate)) / 1000;	//	秒
+		let workHour = Math.floor(workSec / 3600);		//	時間
+		let workMin = Math.floor(workSec % 3600 / 60);	//	分
 		let workTotal = workHour + "時間" + workMin + "分"
 		document.getElementById('work-end-date').innerHTML = useDate;
 		document.getElementById('work-total-time').innerHTML = workTotal + "働きました";
@@ -58,7 +58,6 @@ function chillClick() {
 	let nowHour = addZero(nowTime.getHours());
 	let nowMinute = addZero(nowTime.getMinutes());
 	let nowSecond = addZero(nowTime.getSeconds());
-	let button = document.getElementById('in-out-button');
 	let useDate = nowYear + "/" + nowMonth + "/" + nowDate + " " + nowHour + ":" + nowMinute + ":" + nowSecond;
 	let button = document.getElementById('chill-button');
 	if (button.value == "休憩") {
@@ -67,9 +66,9 @@ function chillClick() {
 	} else {
 		let chillStartDate = document.getElementById('work-start-date').textContent;
 		//	勤務時間計算
-		let chillSec = Math.abs(new Date(useDate).getTime() - new Date(chillStartDate)) / 1000;
-		let chillHour = Math.floor(chillSec / 3600);
-		let chillMin = Math.floor(chillSec % 3600 / 60);
+		let chillSec = Math.abs(new Date(useDate).getTime() - new Date(chillStartDate)) / 1000;	//	秒
+		let chillHour = Math.floor(chillSec / 3600);		//	時間
+		let chillMin = Math.floor(chillSec % 3600 / 60);	//	分
 		let chillTotal = chillHour + "時間" + chillMin + "分"
 		document.getElementById('chill-end-date').innerHTML = useDate;
 		document.getElementById('chill-total-time').innerHTML = chillTotal + "休憩しました";
